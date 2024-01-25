@@ -30,6 +30,8 @@ def upgrade():
     sa.Column('frozen_hash', sa.String(), nullable=True),
     sa.Column('code_hash', sa.String(), nullable=True),
     sa.Column('data_hash', sa.String(), nullable=True),
+    sa.Column('code_boc', sa.String(), nullable=True),
+    sa.Column('data_boc', sa.String(), nullable=True),
     sa.PrimaryKeyConstraint('account')
     )
 
@@ -83,7 +85,9 @@ def upgrade():
                 account_status=account_state.account_status,
                 frozen_hash=account_state.frozen_hash,
                 code_hash=account_state.code_hash,
-                data_hash=account_state.data_hash
+                data_hash=account_state.data_hash,
+                code_boc=account_state.code_boc,
+                data_boc=account_state.data_boc
             )
             bind.execute(insert_query)
 

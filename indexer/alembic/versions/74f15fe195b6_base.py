@@ -26,6 +26,8 @@ def upgrade():
     sa.Column('frozen_hash', sa.String(), nullable=True),
     sa.Column('code_hash', sa.String(), nullable=True),
     sa.Column('data_hash', sa.String(), nullable=True),
+    sa.Column('code_boc', sa.String(), nullable=True),
+    sa.Column('data_boc', sa.String(), nullable=True),
     sa.PrimaryKeyConstraint('hash')
     )
     op.create_table('blocks',
@@ -83,6 +85,8 @@ def upgrade():
     sa.Column('last_transaction_lt', sa.BigInteger(), nullable=True),
     sa.Column('code_hash', sa.String(), nullable=True),
     sa.Column('data_hash', sa.String(), nullable=True),
+    sa.Column('code_boc', sa.String(), nullable=True),
+    sa.Column('data_boc', sa.String(), nullable=True),
     sa.PrimaryKeyConstraint('address')
     )
     op.create_table('message_contents',
@@ -130,6 +134,8 @@ def upgrade():
     sa.Column('last_transaction_lt', sa.BigInteger(), nullable=True),
     sa.Column('code_hash', sa.String(), nullable=True),
     sa.Column('data_hash', sa.String(), nullable=True),
+    sa.Column('code_boc', sa.String(), nullable=True),
+    sa.Column('data_boc', sa.String(), nullable=True),
     sa.PrimaryKeyConstraint('address')
     )
     op.create_table('transactions',
